@@ -5,9 +5,9 @@
     See the LICENSE.txt file for the conditions of the license.
 */
 
-#include <Tonemap.h>
+#include "Tonemap.h"
 
-#include <Image.h>
+#include "Image.h"
 #ifdef TONEMAPPER_BUILD_GUI
     #include <nanogui/shader.h>
 #endif

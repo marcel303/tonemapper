@@ -108,7 +108,7 @@ public:
 
         float sigma = 100.f,
               k     = (sigma - 0.25f * Lwas) / (sigma + Lwas);
-        k = std::clamp(k * k, 0.f, 1.f);
+        k = clamp(k * k, 0.f, 1.f);
         parameters["k"] = Parameter(k, 0.f, 1.f, "k", "Blend between photopic and scotopic world adaption to account for mesopic range in between.");
     }
 

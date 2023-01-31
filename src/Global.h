@@ -14,7 +14,8 @@
     #define NOGDI
 #endif
 
-#include <tinyformat.h>
+#include "tinyformat.h"
+#include <algorithm>
 #include <string>
 #include <vector>
 
@@ -74,6 +75,11 @@ inline void printMultiline(const std::string &text,
     }
 }
 
+template <typename T>
+inline T clamp(T value, T min, T max) {
+    return value < min ? min : value > max ? max : value;
+}
+
 template <typename Predicate>
 size_t findInterval(size_t size, const Predicate &pred) {
     size_t first = 0,
@@ -88,7 +94,7 @@ size_t findInterval(size_t size, const Predicate &pred) {
             len = half;
         }
     }
-    return std::clamp(first - 1, size_t(0), size - 2);
+    return clamp(first - 1, size_t(0), size - 2);
 }
 
 template <typename T>

@@ -7,16 +7,19 @@
 
 #include <iostream>
 
-#include <Global.h>
-#include <Image.h>
-#include <Tonemap.h>
+#include "Global.h"
+#include "Image.h"
+#include "Tonemap.h"
 
 #ifdef TONEMAPPER_BUILD_GUI
-    #include <Gui.h>
+    #include "Gui.h"
     #include <nanogui/nanogui.h>
 #endif
 
 #include <filesystem>
+
+#define VERSION 1
+#define YEAR 2023
 
 using namespace tonemapper;
 
@@ -132,7 +135,7 @@ int main(int argc, char **argv) {
 
     for (int i = 1; i < argc; ++i) {
         std::string token(argv[i]);
-        std::string extension = std::filesystem::path(token).extension().string();
+        std::string extension = std::__fs::filesystem::path(token).extension().string();
 
         if (token.compare("--help") == 0) {
             showHelp = true;
@@ -178,7 +181,7 @@ int main(int argc, char **argv) {
 
         } else if (extension.compare(".exr") == 0 ||
                    extension.compare(".hdr") == 0) {
-            if (std::filesystem::exists(token)) {
+            if (std::__fs::filesystem::exists(token)) {
                 inputImages.push_back(token);
             } else {
                 std::string warning = "Specified input file \"" + token + "\" does not exist.";

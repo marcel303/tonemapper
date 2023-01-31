@@ -5,10 +5,12 @@
     See the LICENSE.txt file for the conditions of the license.
 */
 
-#include <Gui.h>
+#ifdef TONEMAPPER_BUILD_GUI
 
-#include <Image.h>
-#include <Tonemap.h>
+#include "Gui.h"
+
+#include "Image.h"
+#include "Tonemap.h"
 
 #include <nanogui/button.h>
 #include <nanogui/graph.h>
@@ -801,3 +803,5 @@ void RgbGraph::draw(NVGcontext *ctx) {
 }
 
 } // Namespace tonemapper
+
+#endif

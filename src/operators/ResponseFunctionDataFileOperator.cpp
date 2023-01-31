@@ -98,7 +98,7 @@ public:
     }
 
     void fromFile(const std::string &filename) override {
-        std::filesystem::path path(filename);
+        std::__fs::filesystem::path path(filename);
         PRINT_("Read camera response function %s ..", path.filename());
 
         irradiance.clear();

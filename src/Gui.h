@@ -7,9 +7,11 @@
 
 #pragma once
 
-#include <Global.h>
+#ifdef TONEMAPPER_BUILD_GUI
 
-#include <nanogui/screen.h>
+#include "Global.h"
+
+#include "nanogui/screen.h"
 
 #include <thread>
 
@@ -121,3 +123,5 @@ protected:
 };
 
 } // Namespace tonemapper
+
+#endif

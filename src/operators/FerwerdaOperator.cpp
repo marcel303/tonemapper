@@ -110,7 +110,7 @@ public:
            the details of this scale factor, but it is later given
            in "Interactive Tone Mapping" by Durand and Dorsey 2000. */
         float k = 1.f - (0.5f*Lwap - 0.01f) / (10.f - 0.01f);
-        k = std::clamp(k * k, 0.f, 1.f);
+        k = clamp(k * k, 0.f, 1.f);
         parameters["k"] = Parameter(k, 0.f, 1.f, "k", "Blend between photopic and scotopic world adaption to account for mesopic range in between.");
     }
 

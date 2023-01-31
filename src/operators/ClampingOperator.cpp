@@ -75,7 +75,7 @@ public:
         Lwhite *= exposure;
 
         // Apply tonemapping curve to luminance
-        float Lout = std::clamp(Lin / Lwhite, 0.f, 1.f);
+        float Lout = clamp(Lin / Lwhite, 0.f, 1.f);
 
         // Treat color by preserving color ratios [Schlick 1994].
         Color3f Cout = Cin / Lin * Lout;

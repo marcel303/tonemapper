@@ -5,7 +5,7 @@
     See the LICENSE.txt file for the conditions of the license.
 */
 
-#include <Image.h>
+#include "Image.h"
 
 #include <limits>
 #include <filesystem>
@@ -17,10 +17,10 @@
     // This definition is already done as part of nanogui
     #define STB_IMAGE_IMPLEMENTATION
 #endif
-#include <stb_image.h>
+#include "stb_image.h"
 
 #define TINYEXR_IMPLEMENTATION
-#include <tinyexr.h>
+#include "tinyexr.h"
 
 namespace tonemapper {
 
@@ -142,7 +142,7 @@ Image *loadFromHDR(const std::string &filename) {
 Image *Image::load(const std::string &filename) {
     Image *image = nullptr;
 
-    std::string extension = std::filesystem::path(filename).extension().string();
+    std::string extension = std::__fs::filesystem::path(filename).extension().string();
     if (extension == ".exr") {
         image = loadFromEXR(filename);
     } else if (extension == ".hdr") {
@@ -168,7 +168,7 @@ void Image::save(const std::string &filename) const {
     std::string out = filename;
     bool saveAsJpg;
 
-    std::string extension = std::filesystem::path(filename).extension().string();
+    std::string extension = std::__fs::filesystem::path(filename).extension().string();
     if (extension == ".jpg") {
         saveAsJpg = true;
     } else if (extension == ".png") {

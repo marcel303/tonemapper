@@ -1,0 +1,11 @@
+app tonemapper
+	
+	depend_library framework
+	
+	scan_files cpp|h path src
+	scan_files cpp|h path src/operators group operators
+	header_path src
+	
+	header_path ext/stb
+	header_path ext/tinyexr
+	header_path ext/tinyformat
